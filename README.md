@@ -13,6 +13,7 @@ This will install and create containers for the following apps
 - Bazarr
 - Sabnzbd
 - Qbittorrent
+- Gaps
 - Tautulli
 > Do not use Qbittorrent until it is protected by a VPN
 
@@ -31,6 +32,7 @@ The following folders should be created. You can copy/paste these into a termina
 - mkdir /volume1/docker/bazarr
 - mkdir /volume1/docker/readarr
 - mkdir /volume1/docker/sabnzbd
+- mkdir /volume1/docker/qbittorrent
 - mkdir /volume1/docker/plex
 - mkdir /volume1/docker/plex/transcode
 - mkdir /volume1/docker/plex/config
