@@ -13,6 +13,7 @@ This will install and create containers for the following apps
 - Bazarr
 - Sabnzbd
 - Qbittorrent
+- Tautulli
 > Do not use Qbittorrent until it is protected by a VPN
 
 ## Prerequisites
@@ -21,24 +22,24 @@ This will install and create containers for the following apps
 
 ### Folders
 The following folders should be created. You can copy/paste these into a terminal
-- cd /volume1/downloads/complete
-- cd /volume1/downloads/incomplete
-- cd /volume1/docker/prowlarr
-- cd /volume1/docker/sonarr
-- cd /volume1/docker/radarr
-- cd /volume1/docker/lidarr
-- cd /volume1/docker/bazarr
-- cd /volume1/docker/readarr
-- cd /volume1/docker/sabnzbd
-- cd /volume1/docker/plex
-- cd /volume1/docker/plex/transcode
-- cd /volume1/docker/plex/config
-- cd /volume1/docker/portainer
-- cd /volume1/docker/tautulli
-- cd /volume1/docker/posterr
-- cd /volume1/docker/poster/config
-- cd /volume1/docker/poster/randomthemes
-- cd /volume1/docker/gaps
+- mkdir /volume1/downloads/complete
+- mkdir /volume1/downloads/incomplete
+- mkdir /volume1/docker/prowlarr
+- mkdir /volume1/docker/sonarr
+- mkdir /volume1/docker/radarr
+- mkdir /volume1/docker/lidarr
+- mkdir /volume1/docker/bazarr
+- mkdir /volume1/docker/readarr
+- mkdir /volume1/docker/sabnzbd
+- mkdir /volume1/docker/plex
+- mkdir /volume1/docker/plex/transcode
+- mkdir /volume1/docker/plex/config
+- mkdir /volume1/docker/portainer
+- mkdir /volume1/docker/tautulli
+- mkdir /volume1/docker/posterr
+- mkdir /volume1/docker/posterr/config
+- mkdir /volume1/docker/posterr/randomthemes
+- mkdir /volume1/docker/gaps
 
 Your media path should be one top-level folder with sub folders for different media types 
 > For example:
@@ -49,7 +50,7 @@ Your media path should be one top-level folder with sub folders for different me
 >   - ebooks
 
 ### Changes to .env file
-Review the .env and update
+Review the .env and update 
 - TZ
 - PUID
 - PGID
