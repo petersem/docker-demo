@@ -303,4 +303,85 @@ services:
       timeout: 10s
       interval: 5s
       retries: 3
+
+  # Poster
+  posterr:
+    image: petersem/posterr
+    container_name: posterr
+    environment:
+      TZ: $TZ
+    volumes:
+      - $DOCKER_PATH/posterr/randomthemes:/usr/src/app/public/randomthemes
+      - $DOCKER_PATH/posterr/config:/usr/src/app/config
+    ports:
+      - 9876:3000
+    restart: always
+
+  # gaps - finds missing movies in plex libraries
+  gaps:
+    ports:
+      - 8484:8484
+    container_name: gaps
+    expose:
+      - '32400'
+    volumes:
+      - $DOCKER_PATH/gaps:/usr/data
+    image: housewrecker/gaps
+    restart: unless-stopped  
+
+  plex:
+    container_name: plex
+    restart: unless-stopped
+    image: linuxserver/plex
+    volumes:
+      - $DOCKER_PATH/plex/config:/config
+      - $DOCKER_PATH/plex/transcode:/transcode
+      - $MEDIA_PATH:/media
+    network_mode: host
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      - HOSTNAME=$HOST_NAME
+      - PLEX_CLAIM=$PLEX_CLAIM_TOKEN
+      - ADVERTISE_IP=$ADVERTISE_IP
+      - VERSION=docker
+      - ALLOWED_NETWORKS=$ALLOWED_NETWORKS
+    labels: 
+      autoheal: 'true'
+    healthcheck:
+      test: curl -fsS http://localhost:32400/identity > /dev/null || exit 1
+      start_period: 20s
+      timeout: 10s
+      interval: 5s
+      retries: 3
+    # Un-comment the below if you have an embedded intel GPU
+    #devices:
+    #  - /dev/dri:/dev/dri
+
+  tautulli:
+    environment:
+      - HOME=/root
+      - TERM=xterm
+      - TAUTULLI_DOCKER=True
+      - TZ=$TZ
+    volumes:
+      - $DOCKER_PATH/tautulli:/config:rw
+      - $DOCKER_PATH/plex/config/Library/Application Support/Plex Media Server/Logs:/logs:ro
+    container_name: tautulli
+    ports:
+      - 8181:8181
+    labels: 
+      autoheal: 'true'
+    healthcheck:
+      test: curl -ILfSs http://localhost:8181/status > /dev/null || curl -ILfkSs https://localhost:8181/status > /dev/null
+      start_period: 120s
+      timeout: 10s
+      interval: 5s
+      retries: 3
+    restart: 'unless-stopped'
+    image: tautulli/tautulli
+    depends_on:
+      plex:
+        condition: service_healthy
       
