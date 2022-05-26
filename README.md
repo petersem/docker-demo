@@ -16,7 +16,8 @@ This will install and create containers for the following apps
 > Do not use Qbittorrent until it is protected by a VPN
 
 ## Prerequisites
-This will install as-is, however best with OpenVPN/Wireguard/Another VPN? (Needed for Qbittorrent)
+- Install the docker package
+- Best with OpenVPN/Wireguard/Another VPN? (Needed for Qbittorrent)
 
 ### Folders
 The following folders should be created. You can copy/paste these into a terminal
