@@ -62,7 +62,6 @@ services:
       - 9999:8080
     restart: unless-stopped
 
-services:
   #
   # Prowlarr - index aggregator
   #
