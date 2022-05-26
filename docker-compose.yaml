@@ -356,8 +356,8 @@ services:
       interval: 5s
       retries: 3
     # Un-comment the below if you have an embedded intel GPU
-    #devices:
-    #  - /dev/dri:/dev/dri
+    devices:
+      - /dev/dri:/dev/dri
 
   tautulli:
     environment:
