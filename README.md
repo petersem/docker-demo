@@ -21,6 +21,8 @@ This will install and create containers for the following apps
 ## Prerequisites
 - Install the docker package
 - Best with OpenVPN/Wireguard/Another VPN? (Needed for Qbittorrent)
+- This is configured for machines that have an Intel Quicksync GPU
+  If you do not have one of these, edit the docker-compose.yaml and find the section on Plex. At the end of the section are two lines for "device:". Remove, or comment theses lines and it will all work. 
 
 ### Folders
 The following folders should be created. You can copy/paste these into a terminal
