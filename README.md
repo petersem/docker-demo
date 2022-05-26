@@ -20,11 +20,8 @@ This will install as-is, however best with OpenVPN/Wireguard/Another VPN? (Neede
 
 ### Folders
 The following folders should be created. You can copy/paste these into a terminal
-- downloads
-> - /volume1/downloads/complete
-> - /volume1/downloads/incomplete
-- docker
-> These above folders are for partial and completed downloads. Put them under a folder wherever you wish.
+- cd /volume1/downloads/complete
+- cd /volume1/downloads/incomplete
 - cd /volume1/docker/prowlarr
 - cd /volume1/docker/sonarr
 - cd /volume1/docker/radarr
